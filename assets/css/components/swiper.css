@@ -1,0 +1,64 @@
+/* ===============================
+    Swiper Styles
+=============================== */
+
+.swiper {
+  width: calc(100% - 4rem);
+}
+
+.swiper-wrapper.news-bar {
+  transition-timing-function: linear !important; /* Ensures linear timing */
+}
+
+/* .swiper.products-container {
+  width: calc(100% - 100px);
+} */
+
+/* Swiper Navigation */
+.swiper-navigation {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* Prevent blocking interactions */
+}
+
+.button-next,
+.button-prev {
+  pointer-events: auto; /* Enable interaction with buttons */
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  width: 1.8em;
+  height: 1.8em;
+  background-color: var(--background, white);
+  color: var(--primary);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+}
+
+.button-next:hover,
+.button-prev:hover {
+  background-color: var(--primary, #a15100);
+  color: var(--btn-text-color, white);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+.button-next:active,
+.button-prev:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* .trending-container + .swiper-navigation {
+  display: none;
+} */
