@@ -22,6 +22,7 @@ navOverlay.addEventListener("click", () => {
 // ======= Active Page Marking =======
 (function markActivePage() {
   let path = window.location.pathname.slice(1) || "index.html";
+  console.log(path);
 
   document.querySelectorAll(".nav-item.active").forEach((link) => {
     link.classList.remove("active");
