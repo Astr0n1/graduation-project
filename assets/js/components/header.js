@@ -66,7 +66,7 @@ const newsResponse = {
   data: [
     { id: 1, news_data: "hi there for 1 minute", news_timer: 1 },
     { id: 2, news_data: "hi there for three minutes", news_timer: 3 },
-    { id: 3, news_data: "hi there for two minutes", news_timer: 3 },
+    { id: 3, news_data: "hi there for two minutes", news_timer: 2 },
   ],
 };
 
@@ -77,7 +77,7 @@ function controlNews(news) {
 }
 
 function cycleNewsItems(newsItems, index) {
-  if (index >= newsItems.length) return;
+  if (index >= newsItems.length) index = 0;
 
   const currentItem = newsItems[index];
 
