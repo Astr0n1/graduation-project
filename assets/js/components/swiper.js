@@ -1,3 +1,12 @@
+const swiperClasses = [
+  ".trending",
+  ".future",
+  ".curent-bids",
+  ".finished-bids",
+];
+
+const swiperInstances = [];
+
 function initializeSwiper(selector) {
   // Shared settings for all swipers
   const settings = {
@@ -13,6 +22,9 @@ function initializeSwiper(selector) {
       nextEl: `${selector} .button-next`,
       prevEl: `${selector} .button-prev`,
     },
+    keyboard: {
+      enabled: false,
+    },
     breakpoints: {
       1440: { slidesPerView: 4 },
       1024: { slidesPerView: 3.5, spaceBetween: 50 },
@@ -27,10 +39,29 @@ function initializeSwiper(selector) {
   return new Swiper(selector + " .swiper", settings);
 }
 
-// Initialize different swipers
-const swipers = {
-  trendingBidsSwiper: initializeSwiper(".trending", "products"),
-  futureBidsSwiper: initializeSwiper(".future", "products"),
-  currentBidsSwiper: initializeSwiper(".current-bids", "products"),
-  finishedBidsSwiper: initializeSwiper(".finished-bids", "products"),
-};
+swiperClasses.forEach((swiperClass) => {
+  const swiperEL = document.querySelector(swiperClass);
+  if (swiperEL) {
+    console.log(swiperEL);
+    const swiperInstance = initializeSwiper(swiperClass);
+
+    swiperInstances.push(swiperInstance);
+
+    swiperEL.addEventListener("click", () => enableKeyboard(swiperInstance));
+    swiperEL.addEventListener("touchstart", () =>
+      enableKeyboard(swiperInstance)
+    );
+    swiperEL.addEventListener("focusin", () => enableKeyboard(swiperInstance));
+  }
+});
+
+let activeSwiper = null;
+
+// Enable keyboard for the selected Swiper and disable for others
+function enableKeyboard(swiper) {
+  if (activeSwiper !== swiper) {
+    if (activeSwiper) activeSwiper.keyboard.disable(); // Disable previous active Swiper
+    swiper.keyboard.enable(); // Enable current Swiper
+    activeSwiper = swiper;
+  }
+}
