@@ -289,11 +289,16 @@
   }
 }
 
+.header-conserver {
+  width: 100vw;
+  height: 100px;
+}
+
 /* news */
 
 .news {
   position: fixed;
-  margin: 120px auto 0;
+  margin: 20px auto 0;
   width: 85vw;
   margin-left: 7.5vw;
   padding: 15px;
