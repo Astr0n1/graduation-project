@@ -76,7 +76,7 @@
 }
 
 .navbar.active + .nav-overlay {
-  z-index: 7;
+  z-index: 8;
   width: 100vw;
   height: 100vh;
   background: rgba(170, 170, 170, 0.1);
@@ -104,7 +104,7 @@
 .bottom-nav {
   display: none;
   position: fixed;
-  z-index: 5;
+  z-index: 7;
   bottom: 0;
   background-color: var(--background);
   width: 100vw;
@@ -243,6 +243,10 @@
     display: flex;
   }
 
+  .bottom-nav-conserver {
+    height: 70px;
+  }
+
   #menu {
     display: block;
     margin-right: 20px;
@@ -259,7 +263,7 @@
     align-items: center;
     border-left: var(--border-gray);
     right: -1px;
-    top: 98px;
+    top: 79px;
 
     width: 250px;
     height: 100vh;
@@ -306,6 +310,7 @@
 
 .news {
   position: fixed;
+  z-index: 7;
   margin: 20px auto 0;
   width: 85vw;
   margin-left: 7.5vw;
@@ -320,7 +325,7 @@
 
 .news-logo {
   position: absolute;
-  z-index: 5;
+  z-index: 7;
   bottom: -15px;
   left: 15px;
 }
