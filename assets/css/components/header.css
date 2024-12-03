@@ -17,6 +17,11 @@
   font-weight: 500;
 }
 
+.header-conserver {
+  width: 100vw;
+  height: 100px;
+}
+
 .header .cart-icon {
   font-size: 1.8rem;
   color: var(--primary);
@@ -103,7 +108,7 @@
   bottom: 0;
   background-color: var(--background);
   width: 100vw;
-  height: 80px;
+  height: 70px;
   justify-content: space-evenly;
   border-top: var(--border-gray);
   /* transition: var(--theme-transition); */
@@ -226,6 +231,14 @@
     justify-content: space-between;
   }
 
+  .header,
+  .header-conserver {
+    height: 80px;
+  }
+  .logo {
+    width: 60px;
+  }
+
   .bottom-nav {
     display: flex;
   }
@@ -287,11 +300,6 @@
   header .cart {
     display: none;
   }
-}
-
-.header-conserver {
-  width: 100vw;
-  height: 100px;
 }
 
 /* news */
