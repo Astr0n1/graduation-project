@@ -1,0 +1,33 @@
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/otp.css">
+    <!-- JS -->
+    <script defer src="assets/js/otp.js"></script>
+
+    <title>OTP Verification</title>
+
+  </head>
+  <body>
+    <div class="container">
+      <h1>OTP Verification</h1>
+      <p>Enter the OTP you received to <span id="email"></span></p>
+      <div class="otp-input">
+        <input type="number" min="0" max="9" required>
+        <input type="number" min="0" max="9" required>
+        <input type="number" min="0" max="9" required>
+        <input type="number" min="0" max="9" required>
+
+      </div>
+      <div class="resend-text">
+        Didn't receive the code?
+        <span class="resend-link" onclick="resendOTP()">Resend Code</span>
+        <span id="timer"></span>
+      </div>
+      <button onclick="verifyOTP()">Verify</button>
+    </div>
+  </body>
+</html>

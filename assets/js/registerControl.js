@@ -6,7 +6,7 @@ import { View } from "./view/registerView.js";
 const Controller = {
   init() {
     this.bindEvents();
-    // this.resetOnLoad();
+    this.resetOnLoad();
   },
 
   bindEvents() {
@@ -131,7 +131,7 @@ const Controller = {
       });
 
       console.log(userData);
-      window.location.href = "index.html";
+      window.location.href = "otp.html";
     } catch (error) {
       console.log(error);
     }

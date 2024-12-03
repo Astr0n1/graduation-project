@@ -11,6 +11,7 @@ body {
 .form-container {
   flex: 1;
   padding: 30px;
+  padding-bottom: unset;
 }
 
 .logo {
@@ -19,7 +20,7 @@ body {
 
 h1 {
   font-size: 35px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 
 p {
@@ -29,13 +30,13 @@ p {
 }
 
 form {
-  margin-top: 30px;
+  /* margin-top: 30px; */
   padding-inline: 80px;
 }
 
 form .input-group {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .input-group i {
@@ -48,12 +49,12 @@ form .input-group {
 }
 
 .input-group input {
-  width: 100%;
-  padding: 20px 10px 20px 50px;
   background-color: rgb(217, 217, 217, 0.3);
   border: 1px solid #ccc;
+  font-size: 16px;
+  width: 100%;
+  padding: 20px 10px 20px 50px;
   border-radius: 5px;
-  font-size: 14px;
 }
 
 .input-group.invalid input {
@@ -77,8 +78,9 @@ form .input-group {
 }
 
 .signup-btn {
-  width: 100%;
-  padding: 10px;
+  width: 60%;
+  margin-left: 20%;
+  padding: 20px;
   background-color: #8a4d1f;
   color: #fff;
   font-size: 16px;
@@ -108,9 +110,11 @@ form .input-group {
 }
 
 .image-container {
-  flex: 1;
+  /* flex: 1; */
+  width: 50%;
+  min-height: 100dvh;
+  max-height: 100dvh;
   background-color: #eaeaea;
-  /* max-height: 100dvh; */
   overflow: hidden;
 }
 
@@ -132,7 +136,7 @@ form .input-group {
 
 .status-messages p {
   font-size: 14px;
-  line-height: 1.5rem;
+  line-height: 1.1rem;
   text-wrap: nowrap;
   text-align: center;
   margin: 0;
@@ -149,6 +153,19 @@ form .input-group {
 button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+}
+
+@media (min-width: 850px) and (max-height: 790px) {
+  .image-container {
+    min-height: 100dvh;
+    max-height: unset;
+  }
+}
+
+@media (max-height: 800px) {
+  .input-group {
+    margin-bottom: 20px !important;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -172,10 +189,11 @@ button:disabled {
   .logo {
     display: block;
     margin-inline: auto;
+    transform: translateY(-10px);
   }
 
   form {
-    margin-top: 20px;
+    margin-top: 0px;
     width: 70vw;
     margin-inline: auto;
     padding-inline: 0;
@@ -205,6 +223,12 @@ button:disabled {
   }
   form {
     width: 85vw;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 25px;
   }
 }
 

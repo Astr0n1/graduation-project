@@ -42,10 +42,10 @@ export const View = {
     }
   },
 
-  resetForm(inputFields, inputStatus) {
+  resetForm(inputFields) {
     for (const key in inputFields) {
       inputFields[key].value = "";
-      this.updateStatus(inputStatus[key], "reset");
+      console.log(key);
     }
   },
 
