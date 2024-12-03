@@ -1,33 +1,67 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS -->
+    <title>Register</title>
+    <!-- icon -->
+    <link rel="icon" href="assets/images/logo.png">
+
+    <!-- font awesome -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- sweet alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet">
+
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/register.css">
     <link rel="stylesheet" href="assets/css/otp.css">
+
     <!-- JS -->
-    <script defer src="assets/js/otp.js"></script>
-
-    <title>OTP Verification</title>
-
+    <!-- <script defer src="assets/js/otp.js"></script> -->
+    <script defer src="assets/js/otpController.js" type="module"></script>
   </head>
+
   <body>
     <div class="container">
-      <h1>OTP Verification</h1>
-      <p>Enter the OTP you received to <span id="email"></span></p>
-      <div class="otp-input">
-        <input type="number" min="0" max="9" required>
-        <input type="number" min="0" max="9" required>
-        <input type="number" min="0" max="9" required>
-        <input type="number" min="0" max="9" required>
+      <!-- Left Section -->
 
+      <div class="otp-container">
+        <div class="otp">
+
+          <h1>OTP Verification</h1>
+          <p>Enter the code we sent you to your e-mail here</p>
+          <div class="otp-input">
+            <input type="number" min="0" max="9" required>
+            <input type="number" min="0" max="9" required>
+            <input type="number" min="0" max="9" required>
+            <input type="number" min="0" max="9" required>
+
+          </div>
+          <div class="resend-text">
+            Didn't receive the code?
+            <button disabled class="resend-link">Resend
+              Code
+              <span id="timer"></span>
+            </button>
+
+          </div>
+          <button id="verify">Verify</button>
+        </div>
       </div>
-      <div class="resend-text">
-        Didn't receive the code?
-        <span class="resend-link" onclick="resendOTP()">Resend Code</span>
-        <span id="timer"></span>
+
+      <!-- Right Section -->
+      <div class="image-container">
+        <img src="assets/images/register.png" alt="side Section Image">
       </div>
-      <button onclick="verifyOTP()">Verify</button>
     </div>
+
   </body>
 </html>

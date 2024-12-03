@@ -240,3 +240,7 @@ button:disabled {
 .swal-button.error {
   color: #f27474 !important;
 }
+
+.swal-text {
+  text-align: center;
+}

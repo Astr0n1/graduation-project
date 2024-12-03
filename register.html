@@ -25,99 +25,89 @@
 
     <!-- JS -->
     <!-- <script defer src="assets/js/register.js"></script> -->
-    <script defer src="assets/js/registerControl.js" type="module"></script>
+    <script defer src="assets/js/registerController.js" type="module"></script>
 
   </head>
-  <body>
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Create an Account</title>
-        <link rel="stylesheet" href="assets/css/styles.css">
-      </head>
-      <body>
-        <div class="container">
-          <!-- Left Section -->
-          <div class="form-container">
-            <img src="assets/images/logo.png" alt="PeakMart Logo" class="logo">
-            <form class="register-data">
-              <h1>Create An account</h1>
-              <!-- <p>Lorem ipsum dolor sit amet</p> -->
-              <div class="input-group">
-                <i class="fa fa-user"></i>
-                <input id="username" type="text" placeholder="Username" required
-                  autocomplete="username">
-                <div id="username" class="status-messages">
-                  <p class="invalid" id="start">User name must start with a
-                    letter</p>
-                  <p class="invalid" id="letters">Only letters, numbers, or _
-                    allowed</p>
-                </div>
-              </div>
-              <div class="input-group">
-                <i class="fa fa-envelope"></i>
-                <input id="email" type="email" placeholder="Email Address"
-                  required
-                  autocomplete="email">
-                <div id="email" class="status-messages">
-                  <p class="invalid" id="email">Only Gmail , Outlook or icloud
-                    emails allowed</p>
-                </div>
-              </div>
-              <div class="input-group">
-                <i class="fa fa-phone"></i>
-                <input id="phone" type="tel" placeholder="Phone number" required
-                  autocomplete="tel">
-                <div id="phone" class="status-messages">
-                  <p class="invalid" id="phone">Enter a valid mobile number</p>
-                </div>
-              </div>
-              <div class="input-group">
-                <i class="fa fa-lock"></i>
-                <input id="password" type="password" placeholder="Password"
-                  required>
-                <i class="fa fa-eye toggle-password"></i>
-                <div id="password" class="status-messages">
-                  <p class="invalid " id="eight_letters">Include at least 8
-                    characters</p>
-                  <p class="invalid " id="upper">Include at least one uppercase
-                    letter</p>
-                  <p class="invalid " id="lower">Include at least one lowercase
-                    letter</p>
-                  <p class="invalid " id="number">Include at least one
-                    number</p>
-                  <p class="invalid " id="special">Include at least one special
-                    character</p>
-                </div>
-              </div>
-              <div class="input-group">
-                <i class="fa fa-lock"></i>
-                <input id="confirm_password" type="password"
-                  placeholder="Confirm password"
-                  required>
-                <i class="fa fa-eye toggle-password"></i>
-                <div id="confirm_password" class="status-messages">
-                  <p class="invalid" id="confirm_password">The two passwords
-                    must match</p>
-                </div>
-              </div>
-              <button type="submit" class="signup-btn" id="submit-btn">Sign
-                up</button>
-            </form>
-            <p class="login-text">
-              already have an account? <a href="#">Login</a>
-            </p>
-          </div>
 
-          <!-- Right Section -->
-          <div class="image-container">
-            <img src="assets/images/register.png" alt="side Section Image">
+  <body>
+    <div class="container">
+      <!-- Left Section -->
+      <div class="form-container">
+        <img src="assets/images/logo.png" alt="PeakMart Logo" class="logo">
+        <form class="register-data">
+          <h1>Create An account</h1>
+          <p>Lorem ipsum dolor sit amet</p>
+          <div class="input-group">
+            <i class="fa fa-user"></i>
+            <input id="username" type="text" placeholder="Username" required
+              autocomplete="username">
+            <div id="username" class="status-messages">
+              <p class="invalid" id="start">User name must start with a
+                letter</p>
+              <p class="invalid" id="letters">Only letters, numbers, or _
+                allowed</p>
+            </div>
           </div>
-        </div>
-      </body>
-    </html>
+          <div class="input-group">
+            <i class="fa fa-envelope"></i>
+            <input id="email" type="email" placeholder="Email Address"
+              required
+              autocomplete="email">
+            <div id="email" class="status-messages">
+              <p class="invalid" id="email">Only Gmail , Outlook or icloud
+                emails allowed</p>
+            </div>
+          </div>
+          <div class="input-group">
+            <i class="fa fa-phone"></i>
+            <input id="phone" type="tel" placeholder="Phone number" required
+              autocomplete="tel">
+            <div id="phone" class="status-messages">
+              <p class="invalid" id="phone">Enter a valid mobile number</p>
+            </div>
+          </div>
+          <div class="input-group">
+            <i class="fa fa-lock"></i>
+            <input id="password" type="password" placeholder="Password"
+              required>
+            <i class="fa fa-eye toggle-password"></i>
+            <div id="password" class="status-messages">
+              <p class="invalid " id="eight_letters">Include at least 8
+                characters</p>
+              <p class="invalid " id="upper">Include at least one uppercase
+                letter</p>
+              <p class="invalid " id="lower">Include at least one lowercase
+                letter</p>
+              <p class="invalid " id="number">Include at least one
+                number</p>
+              <p class="invalid " id="special">Include at least one special
+                character</p>
+            </div>
+          </div>
+          <div class="input-group">
+            <i class="fa fa-lock"></i>
+            <input id="confirm_password" type="password"
+              placeholder="Confirm password"
+              required>
+            <i class="fa fa-eye toggle-password"></i>
+            <div id="confirm_password" class="status-messages">
+              <p class="invalid" id="confirm_password">The two passwords
+                must match</p>
+            </div>
+          </div>
+          <button type="submit" class="signup-btn" id="submit-btn">Sign
+            up</button>
+        </form>
+        <p class="login-text">
+          already have an account? <a href="#">Login</a>
+        </p>
+      </div>
+
+      <!-- Right Section -->
+      <div class="image-container">
+        <img src="assets/images/register.png" alt="side Section Image">
+      </div>
+    </div>
 
   </body>
 </html>
