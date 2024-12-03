@@ -1,0 +1,197 @@
+.container {
+  display: flex;
+  max-width: 1440px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.form-container {
+  flex: 1;
+  padding: 30px;
+  background-color: #fff;
+}
+
+.logo {
+  margin: 10px 0 0 10px;
+  width: 80px;
+}
+
+h1 {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 22px;
+  color: #5e4242;
+  margin-bottom: 30px;
+}
+
+form {
+  margin-top: 40px;
+  padding-inline: 80px;
+}
+
+form .input-group {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.input-group i {
+  font-size: 22px;
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 20px 10px 20px 50px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.input-group.error input {
+  border: 1px solid red;
+}
+.input-group.valid input {
+  border: 1px solid green;
+}
+
+.input-group input:focus {
+  outline: unset;
+}
+
+.input-group .toggle-password {
+  left: unset;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #888;
+}
+
+.signup-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #8a4d1f;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signup-btn:hover {
+  background-color: #6b3917;
+}
+
+.login-text {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.login-text a {
+  color: #8a4d1f;
+  text-decoration: none;
+}
+
+.login-text a:hover {
+  text-decoration: underline;
+}
+
+.image-container {
+  flex: 1;
+  background-color: #eaeaea;
+  /* max-height: 100dvh; */
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.status-message {
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  font-size: 14px;
+  color: red; /* Default color for invalid status */
+  margin: 0;
+  transform: translateX(-50%);
+  text-wrap: nowrap;
+}
+
+.valid .status-message {
+  visibility: hidden;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 1200px) {
+  form {
+    padding-inline: 40px;
+  }
+}
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 30px;
+  }
+  p {
+    font-size: 18px;
+  }
+  form {
+    padding: 0;
+  }
+}
+
+@media (max-width: 850px) {
+  .logo {
+    display: block;
+    margin-inline: auto;
+  }
+
+  form {
+    margin-top: 20px;
+    width: 70vw;
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+  .image-container {
+    display: none;
+  }
+  form .input-group {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  h1 {
+    font-size: 35px;
+    text-align: center;
+  }
+  p {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 30px;
+  }
+  p {
+    font-size: 18px;
+  }
+  form {
+    width: 85vw;
+  }
+}

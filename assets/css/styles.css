@@ -39,9 +39,9 @@ a {
 }
 
 /* ===============================
-    Container 
+    astron-Container 
 =============================== */
-.container {
+.astron-container {
   position: relative;
   width: 90vw;
   max-width: 1300px;

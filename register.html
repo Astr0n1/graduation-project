@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <!-- icon -->
+    <link rel="icon" href="assets/images/logo.png">
+
+    <!-- font awesome -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet">
+
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/register.css">
+
+    <!-- JS -->
+    <script defer src="assets/js/register.js"></script>
+
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create an Account</title>
+        <link rel="stylesheet" href="assets/css/styles.css">
+      </head>
+      <body>
+        <div class="container">
+          <!-- Left Section -->
+          <div class="form-container">
+            <img src="assets/images/logo.png" alt="PeakMart Logo" class="logo">
+            <form class="register-data">
+              <h1>Create An account</h1>
+              <p>Lorem ipsum dolor sit amet</p>
+              <div class="input-group">
+                <i class="fa fa-user"></i>
+                <input id="username" type="text" placeholder="Username" required
+                  autocomplete="username">
+                <p id="username" class="status-message"></p>
+              </div>
+              <div class="input-group">
+                <i class="fa fa-envelope"></i>
+                <input id="email" type="email" placeholder="Email Address"
+                  required
+                  autocomplete="email">
+                <p id="email" class="status-message"></p>
+              </div>
+              <div class="input-group">
+                <i class="fa fa-phone"></i>
+                <input id="phone" type="tel" placeholder="Phone number" required
+                  autocomplete="tel">
+                <p id="phone" class="status-message"></p>
+              </div>
+              <div class="input-group">
+                <i class="fa fa-lock"></i>
+                <input id="password" type="password" placeholder="Password"
+                  required>
+                <i class="fa fa-eye toggle-password"></i>
+                <p id="password" class="status-message"></p>
+              </div>
+              <div class="input-group">
+                <i class="fa fa-lock"></i>
+                <input id="confirm_password" type="password"
+                  placeholder="Confirm password"
+                  required>
+                <i class="fa fa-eye toggle-password"></i>
+                <p id="confirm_password" class="status-message"></p>
+              </div>
+              <button type="submit" class="signup-btn" id="submit-btn">Sign
+                up</button>
+            </form>
+            <p class="login-text">
+              already have an account? <a href="#">Login</a>
+            </p>
+          </div>
+
+          <!-- Right Section -->
+          <div class="image-container">
+            <img src="assets/images/register.png" alt="side Section Image">
+          </div>
+        </div>
+      </body>
+    </html>
+
+  </body>
+</html>
