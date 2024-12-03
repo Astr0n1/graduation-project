@@ -38,9 +38,7 @@ export const Model = {
     phone: [{ regex: /^\d{10,}$/, id: "phone", valid: false }],
     password: [
       { regex: /[!@#$%^&*(),.?":{}|<>]/, id: "special", valid: false },
-      { regex: /\d/, id: "number", valid: false },
-      { regex: /[a-z]/, id: "lower", valid: false },
-      { regex: /[A-Z]/, id: "upper", valid: false },
+      { regex: /^(?=.*[a-z])(?=.*[A-Z]).*$/, id: "upper_lower", valid: false },
       { regex: /.{8,}/, id: "eight_letters", valid: false },
     ],
   },

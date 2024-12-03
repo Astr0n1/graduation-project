@@ -69,12 +69,9 @@ form {
   outline: none;
 }
 
-.toggle-password {
-  position: absolute;
-  right: 10px;
-  transform: translateY(-50%);
-  cursor: pointer;
-  color: #888;
+i.toggle-password {
+  left: unset;
+  right: 15px;
 }
 
 .signup-btn {

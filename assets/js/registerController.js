@@ -100,7 +100,7 @@ const Controller = {
         // TODO sweet alert failute
         swal({
           title: "Register Failure",
-          text: "Make sure all input fields match the validations",
+          text: "Make sure all input fields are filled and match the validations",
           icon: "error",
           button: "Retry",
           customClass: {
@@ -125,9 +125,9 @@ const Controller = {
     // TODO sweet alert success + time out redirect OTP
     try {
       await swal({
-        title: "Register data is valid continue to OTP step",
+        text: "Register data is valid ",
         icon: "success",
-        button: "Go to OTP",
+        button: "Continue to OTP",
       });
 
       console.log(userData);
