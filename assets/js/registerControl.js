@@ -6,7 +6,7 @@ import { View } from "./view/registerView.js";
 const Controller = {
   init() {
     this.bindEvents();
-    this.resetOnLoad();
+    // this.resetOnLoad();
   },
 
   bindEvents() {
@@ -25,13 +25,27 @@ const Controller = {
       )
     );
 
+    // show status on focus
+    for (const key in Model.inputFields) {
+      const input = Model.inputFields[key];
+      input.addEventListener("focus", () => {
+        View.showStatus(key, Model.inputStatus);
+      });
+    }
+
     // Validate input fields
     for (const key in Model.inputFields) {
       const input = Model.inputFields[key];
-      input.addEventListener("input", () => this.validateField(key));
+      if (key !== "confirmPassword") {
+        input.addEventListener("input", () => this.validateField(key));
+      }
     }
 
     // Confirm password validation
+    Model.inputFields.password.addEventListener(
+      "input",
+      this.validateConfirmPassword.bind(this)
+    );
     Model.inputFields.confirmPassword.addEventListener(
       "input",
       this.validateConfirmPassword.bind(this)
@@ -41,34 +55,32 @@ const Controller = {
     View.submitButton.addEventListener("click", (e) => this.handleSubmit(e));
   },
 
-  validateField(field) {
-    const input = Model.inputFields[field];
+  validateField(key) {
+    const input = Model.inputFields[key];
     const value = input.value;
-    const { valid, message } = Model.validateField(field, value);
+    Model.validateField(key, value);
 
-    View.updateStatus(
-      Model.inputStatus[field],
-      valid ? "valid" : "error",
-      message
-    );
+    View.updateStatus(Model.inputRules[key], Model.inputStatus[key]);
   },
 
   validateConfirmPassword() {
     const password = Model.inputFields.password.value;
     const confirmPassword = Model.inputFields.confirmPassword.value;
 
-    if (!confirmPassword) {
-      View.updateStatus(Model.inputStatus.confirmPassword, "reset");
+    if (!confirmPassword || password !== confirmPassword) {
+      View.confirmPasswordStatus(
+        false,
+        Model.inputFields.confirmPassword,
+        Model.inputStatus.confirmPassword
+      );
       return;
     }
 
     if (password === confirmPassword) {
-      View.updateStatus(Model.inputStatus.confirmPassword, "valid");
-    } else {
-      View.updateStatus(
-        Model.inputStatus.confirmPassword,
-        "error",
-        "Passwords do not match"
+      View.confirmPasswordStatus(
+        true,
+        Model.inputFields.confirmPassword,
+        Model.inputStatus.confirmPassword
       );
     }
   },
@@ -82,28 +94,47 @@ const Controller = {
       const input = Model.inputFields[key];
       const parent = input.closest(".input-group");
 
-      if (!input.value || parent.classList.contains("error")) {
+      if (!input.value || parent.classList.contains("invalid")) {
         isValid = false;
-        this.validateField(key);
+        // this.validateField(key);
+        // TODO sweet alert failute
+        swal({
+          title: "Register Failure",
+          text: "Make sure all input fields match the validations",
+          icon: "error",
+          button: "Retry",
+          customClass: {
+            footer: "error", // Applies the centering style
+          },
+        });
+
+        console.log(`failure in input ${key}`);
       }
     }
-
-    // Validate confirm password
-    this.validateConfirmPassword();
 
     // Check if all fields are valid
     if (isValid) this.successLogin();
   },
 
-  successLogin() {
+  async successLogin() {
     const userData = Object.keys(Model.inputFields).reduce((data, key) => {
       data[key] = Model.inputFields[key].value;
       return data;
     }, {});
 
-    console.log(userData);
-    // Redirect to another page if needed
-    // window.location.href = "index.html";
+    // TODO sweet alert success + time out redirect OTP
+    try {
+      await swal({
+        title: "Register data is valid continue to OTP step",
+        icon: "success",
+        button: "Go to OTP",
+      });
+
+      console.log(userData);
+      window.location.href = "index.html";
+    } catch (error) {
+      console.log(error);
+    }
   },
 
   resetOnLoad() {

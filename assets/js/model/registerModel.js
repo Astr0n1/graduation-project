@@ -10,48 +10,52 @@ export const Model = {
   },
 
   inputStatus: {
-    username: document.querySelector("p#username"),
-    email: document.querySelector("p#email"),
-    phone: document.querySelector("p#phone"),
-    password: document.querySelector("p#password"),
-    confirmPassword: document.querySelector("p#confirm_password"),
+    username: document.querySelector("div.status-messages#username"),
+    email: document.querySelector("div.status-messages#email"),
+    phone: document.querySelector("div.status-messages#phone"),
+    password: document.querySelector("div.status-messages#password"),
+    confirmPassword: document.querySelector(
+      "div.status-messages#confirm_password"
+    ),
   },
 
   inputRules: {
     username: [
-      { regex: /^[A-Za-z]/, message: "User name must start with a letter" },
+      { regex: /^[A-Za-z]/, id: "start", valid: false },
       {
         regex: /^[A-Za-z0-9_ ]+$/,
-        message: "Only letters, numbers, or _ allowed",
+        id: "letters",
+        valid: false,
       },
     ],
     email: [
       {
-        regex: /^[a-zA-Z0-9._%+-]+@(gmail\.com|outlook\.com)$/,
-        message: "Only Gmail or Outlook emails allowed",
+        regex: /^[a-zA-Z0-9._%+-]+@(gmail\.com|outlook\.com|icloud\.com)$/,
+        id: "email",
+        valid: false,
       },
     ],
-    phone: [{ regex: /^\d{11,}$/, message: "Enter a valid mobile number" }],
+    phone: [{ regex: /^\d{10,}$/, id: "phone", valid: false }],
     password: [
-      {
-        regex: /[!@#$%^&*(),.?":{}|<>]/,
-        message: "Include at least one special character",
-      },
-      { regex: /\d/, message: "Include at least one number" },
-      { regex: /[a-z]/, message: "Include at least one lowercase letter" },
-      { regex: /[A-Z]/, message: "Include at least one uppercase letter" },
-      { regex: /.{8,}/, message: "Include at least 8 characters" },
+      { regex: /[!@#$%^&*(),.?":{}|<>]/, id: "special", valid: false },
+      { regex: /\d/, id: "number", valid: false },
+      { regex: /[a-z]/, id: "lower", valid: false },
+      { regex: /[A-Z]/, id: "upper", valid: false },
+      { regex: /.{8,}/, id: "eight_letters", valid: false },
     ],
   },
 
-  validateField(field, value) {
-    if (!value) return { valid: false, message: "This field is required" };
-
-    const rules = this.inputRules[field] || [];
-    for (const rule of rules) {
-      if (!rule.regex.test(value))
-        return { valid: false, message: rule.message };
+  validateField(key, value) {
+    const rules = this.inputRules[key] || [];
+    if (!value) {
+      for (const rule of rules) {
+        rule.valid = false;
+      }
+      return;
     }
-    return { valid: true };
+    for (const rule of rules) {
+      if (rule.regex.test(value)) rule.valid = true;
+      else rule.valid = false;
+    }
   },
 };

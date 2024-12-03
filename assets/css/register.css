@@ -42,7 +42,7 @@ form .input-group {
   font-size: 22px;
   position: absolute;
   left: 18px;
-  top: 50%;
+  top: 30px;
   transform: translateY(-50%);
   color: #626262;
 }
@@ -56,7 +56,7 @@ form .input-group {
   font-size: 14px;
 }
 
-.input-group.error input {
+.input-group.invalid input {
   border: 1px solid red;
 }
 .input-group.valid input {
@@ -69,9 +69,8 @@ form .input-group {
 
 .input-group .toggle-password {
   left: unset;
-  position: absolute;
+  /* position: absolute; */
   right: 10px;
-  top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
   color: #888;
@@ -121,19 +120,30 @@ form .input-group {
   object-fit: cover;
 }
 
-.status-message {
-  position: absolute;
-  bottom: -22px;
-  left: 50%;
-  font-size: 14px;
-  color: red; /* Default color for invalid status */
-  margin: 0;
-  transform: translateX(-50%);
-  text-wrap: nowrap;
+.status-messages {
+  display: none;
 }
 
-.valid .status-message {
-  visibility: hidden;
+.status-messages.visible {
+  display: block;
+  transform: translateY(10px);
+  margin: 0;
+}
+
+.status-messages p {
+  font-size: 14px;
+  line-height: 1.5rem;
+  text-wrap: nowrap;
+  text-align: center;
+  margin: 0;
+}
+
+.status-messages p.invalid {
+  color: red;
+}
+
+.status-messages p.valid {
+  color: green;
 }
 
 button:disabled {
@@ -196,4 +206,13 @@ button:disabled {
   form {
     width: 85vw;
   }
+}
+
+.swal-footer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.swal-button.error {
+  color: #f27474 !important;
 }
