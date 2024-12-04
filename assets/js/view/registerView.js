@@ -26,7 +26,7 @@ export const View = {
     for (const elementKey in status) {
       status[elementKey].classList.remove("visible");
     }
-    status[key].classList.add("visible");
+    if (key) status[key].classList.add("visible");
   },
 
   confirmPasswordStatus(confirmed, inputField, statusDiv) {
@@ -45,7 +45,6 @@ export const View = {
   resetForm(inputFields) {
     for (const key in inputFields) {
       inputFields[key].value = "";
-      console.log(key);
     }
   },
 

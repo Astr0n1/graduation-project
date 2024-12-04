@@ -35,6 +35,7 @@ a {
   --text-color: white;
   --background: #222;
   --background2: #282828;
+  --primary: #d56b00;
   --shadow: 4px 6px 4px 0 rgba(39, 39, 39, 0.25);
 }
 
@@ -54,12 +55,12 @@ a {
 .primary-btn {
   background-color: var(--primary);
   color: var(--btn-text-color);
-  padding: 5px 40px;
+  padding: 5px 30px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 500;
-  font-size: 26px;
+  font-size: 22px;
   transition: background-color 0.3s, transform 0.2s;
 }
 

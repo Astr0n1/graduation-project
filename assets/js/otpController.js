@@ -41,7 +41,6 @@ const Controller = ((model, view) => {
       }
     } else {
       view.showAlert("Error", "Please enter a 4-digit OTP", "error");
-      view.clearInputs();
     }
   };
 
@@ -51,6 +50,7 @@ const Controller = ((model, view) => {
     if (input.value.length === 1 && index < elements.inputs.length - 1) {
       elements.inputs[index + 1].focus();
     }
+    setTimeout(checkFullOTP, 0);
   };
 
   const handleInputKeydown = (e, index) => {
@@ -61,8 +61,11 @@ const Controller = ((model, view) => {
     if (e.key === "e") e.preventDefault();
   };
 
-  const handleLastInputKeydown = (e) => {
-    if (e.key === "Enter") handleVerifyOTP();
+  const checkFullOTP = () => {
+    const enteredOTP = Array.from(elements.inputs)
+      .map((input) => input.value)
+      .join("");
+    if (enteredOTP.length === 4) setTimeout(handleVerifyOTP, 0);
   };
 
   const startTimer = () => {
@@ -85,7 +88,6 @@ const Controller = ((model, view) => {
     startTimer();
     elements.resendLink.addEventListener("click", handleResendOTP);
     elements.verifyBtn.addEventListener("click", handleVerifyOTP);
-    elements.lastInput.addEventListener("keydown", handleLastInputKeydown);
     elements.inputs.forEach((input, index) => {
       input.addEventListener("input", (e) => handleInput(e, index));
       input.addEventListener("keydown", (e) => handleInputKeydown(e, index));

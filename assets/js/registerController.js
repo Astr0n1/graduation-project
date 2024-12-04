@@ -19,6 +19,10 @@ const Controller = {
       );
     });
 
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest("input")) View.showStatus(null, Model.inputStatus);
+    });
+
     // Toggle password visibility
     View.togglePasswordButtons.forEach((button) =>
       button.addEventListener("click", () =>
@@ -117,25 +121,22 @@ const Controller = {
     if (isValid) this.successLogin();
   },
 
-  async successLogin() {
+  successLogin() {
     const userData = Object.keys(Model.inputFields).reduce((data, key) => {
       data[key] = Model.inputFields[key].value;
       return data;
     }, {});
 
-    // TODO sweet alert success + time out redirect OTP
-    try {
-      await swal({
-        text: "Register data is valid ",
-        icon: "success",
-        button: "Continue to OTP",
-      });
+    swal({
+      text: "Register data is valid ",
+      icon: "success",
+      buttons: false,
+    });
 
+    setTimeout(() => {
       console.log(userData);
       window.location.href = "otp.html";
-    } catch (error) {
-      console.log(error);
-    }
+    }, 3000);
   },
 
   setCountryCode() {

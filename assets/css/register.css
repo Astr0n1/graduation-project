@@ -1,35 +1,52 @@
+/* === General Styles === */
 body {
   background-color: var(--background2) !important;
 }
 
-.container {
-  display: flex;
-  max-width: 1440px;
-  margin: auto;
-  overflow: hidden;
-}
-
-.form-container {
-  flex: 1;
-  padding: 30px;
-  padding-bottom: unset;
-}
-
-.logo {
-  width: 80px;
-}
-
 h1 {
-  font-size: 35px;
+  font-size: 30px;
   margin-bottom: 25px;
 }
 
 p {
   font-size: 22px;
-  color: #5e4242;
+  color: var(--text-color);
   margin-bottom: 30px;
 }
 
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* === Layout Containers === */
+.register-container {
+  display: flex;
+  position: relative;
+}
+
+.form-container {
+  width: 50%;
+  padding: 30px;
+  padding-bottom: unset;
+}
+
+.image-container {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100dvh;
+  background-color: #eaeaea;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* === Form Styles === */
 form {
   padding-inline: 80px;
 }
@@ -49,12 +66,16 @@ form {
 }
 
 .input-group input {
-  background-color: rgba(217, 217, 217, 0.3);
-  border: 1px solid #ccc;
-  font-size: 16px;
   width: 100%;
   padding: 20px 10px 20px 50px;
+  font-size: 16px;
+  background-color: rgba(217, 217, 217, 0.3);
+  border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+.input-group input:focus {
+  outline: none;
 }
 
 .input-group.invalid input {
@@ -65,20 +86,15 @@ form {
   border-color: green;
 }
 
-.input-group input:focus {
-  outline: none;
-}
-
-i.toggle-password {
-  left: unset;
-  right: 15px;
+[data-theme="dark"] .input-group input {
+  background-color: #eee;
 }
 
 .signup-btn {
   width: 60%;
   margin-left: 20%;
   padding: 20px;
-  background-color: #8a4d1f;
+  background-color: var(--primary);
   color: #fff;
   font-size: 16px;
   font-weight: bold;
@@ -87,38 +103,12 @@ i.toggle-password {
   cursor: pointer;
 }
 
-.signup-btn:hover {
-  background-color: #6b3917;
+i.toggle-password {
+  left: unset;
+  right: 15px;
 }
 
-.login-text {
-  text-align: center;
-  font-size: 14px;
-  margin-top: 20px;
-}
-
-.login-text a {
-  color: #8a4d1f;
-  text-decoration: none;
-}
-
-.login-text a:hover {
-  text-decoration: underline;
-}
-
-.image-container {
-  width: 50%;
-  height: 100dvh;
-  background-color: #eaeaea;
-  overflow: hidden;
-}
-
-.image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
+/* === Status Messages === */
 .status-messages {
   display: none;
 }
@@ -130,11 +120,11 @@ i.toggle-password {
 }
 
 .status-messages p {
+  margin: 0;
+  margin-left: 20px;
   font-size: 14px;
   line-height: 1.1rem;
-  text-align: center;
-  margin: 0;
-  color: inherit;
+  text-align: start;
 }
 
 .status-messages p.invalid {
@@ -145,15 +135,33 @@ i.toggle-password {
   color: green;
 }
 
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+[data-theme="dark"] .status-messages p.invalid {
+  color: rgb(255, 49, 49);
 }
 
+[data-theme="dark"] .status-messages p.valid {
+  color: rgb(5, 212, 5);
+}
+
+/* === Login Text === */
+.login-text {
+  color: var(--text-color);
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.login-text a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.login-text a:hover {
+  text-decoration: underline;
+}
+
+/* === Responsive Styles === */
 @media (max-height: 800px) {
-  .logo {
-    display: none !important;
-  }
   .form-container {
     padding: 20px;
   }
@@ -177,6 +185,9 @@ button:disabled {
 }
 
 @media (max-width: 1200px) {
+  .logo {
+    width: 90px;
+  }
   form {
     padding-inline: 40px;
   }
@@ -184,7 +195,7 @@ button:disabled {
 
 @media (max-width: 1000px) {
   h1 {
-    font-size: 30px;
+    font-size: 25px;
   }
   p {
     font-size: 18px;
@@ -205,6 +216,11 @@ button:disabled {
     margin: 0 auto;
     padding-inline: 0;
   }
+  .form-container {
+    width: unset;
+    margin: auto;
+    padding: 30px;
+  }
   .image-container {
     display: none;
   }
@@ -215,9 +231,6 @@ button:disabled {
 }
 
 @media (max-width: 600px) {
-  h1 {
-    font-size: 30px;
-  }
   p {
     font-size: 18px;
   }
@@ -227,14 +240,14 @@ button:disabled {
 }
 
 @media (max-width: 400px) {
-  h1 {
-    font-size: 25px;
-  }
   .status-messages p {
     font-size: 12px;
   }
 }
-/* sweet alert customization */
+
+/* === Custom Components === */
+
+/* Sweet Alert Customization */
 .swal-footer {
   display: flex;
   justify-content: space-evenly;
@@ -248,7 +261,7 @@ button:disabled {
   text-align: center;
 }
 
-/* intlTelInpu */
+/* IntlTelInput */
 .iti {
   width: 100%;
 }
@@ -268,4 +281,5 @@ button:disabled {
   width: 70vw;
   max-width: 300px;
   overflow-x: hidden;
+  color: black;
 }

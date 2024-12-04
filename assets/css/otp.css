@@ -1,25 +1,51 @@
+/* === Root Variables === */
 :root {
   --special-border: blue;
   --special-color: var(--primary);
 }
+
+/* === General Styles === */
 h1 {
   margin-bottom: 10px;
 }
+
+p {
+  font-size: 1rem;
+}
+
+/* === OTP Container === */
 .otp-container {
-  flex: 1;
+  width: 50%;
+  margin-top: 20vh;
   padding: 30px;
-  padding-bottom: unset;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* === OTP Input Styles === */
 .otp-input {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 3rem;
+  margin-bottom: 30px;
 }
 
+.otp-input input {
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  font-size: 2.5rem;
+  border: 1px solid var(--primary);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.otp-input input:focus {
+  border-color: var(--special-border);
+  outline: none;
+}
+
+/* Remove Spin Buttons for Number Inputs */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -30,54 +56,39 @@ input[type="number"] {
   -moz-appearance: textfield; /* For Firefox */
 }
 
-.otp-input input {
-  width: 88px;
-  height: 80px;
-  text-align: center;
-  font-size: 2.5rem;
-  border: 1px solid var(--primary);
-  border-radius: 12px;
-  transition: all 0.3s ease;
-}
-.otp-input input:focus {
-  border-color: var(--special-border);
-  outline: none;
-}
-.otp-input input::-webkit-outer-spin-button#verify,
-.otp-input input::-webkit-inner-spin-button#verify {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
+/* === Verify Button === */
 button#verify {
   background-color: var(--primary);
-  border: unset;
+  border: none;
   color: white;
-  width: 220px;
-  height: 60px;
+  width: 200px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 26px;
-  font-weight: bold;
+  font-weight: 500;
+  letter-spacing: 0.5px;
   border-radius: 8px;
   cursor: pointer;
   margin-top: 30px;
   margin-inline: auto;
   transition: all 0.3s ease;
-  font-weight: 500;
-  letter-spacing: 0.5px;
 }
+
 button#verify:hover {
   transform: translateY(-2px);
 }
+
 button#verify:disabled {
-  background: #cccccc;
+  background-color: #cccccc;
   border-color: #999999;
   color: #666666;
-  cursor: default;
+  cursor: not-allowed;
   transform: none;
 }
+
+/* === Timer and Expiry Styles === */
 #timer {
   font-size: 1rem;
   color: var(--special-color);
@@ -88,6 +99,43 @@ button:disabled #timer {
   color: #999999;
 }
 
+.expired {
+  animation: pulse 2s infinite;
+  color: #ff4444;
+}
+
+/* === Resend Link === */
+.resend-text {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.resend-link {
+  color: var(--special-color);
+  background-color: unset;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.resend-link:hover {
+  text-decoration: underline;
+}
+
+.resend-link:disabled {
+  color: #999999 !important;
+  text-decoration: none;
+  cursor: not-allowed;
+}
+
+#email {
+  color: var(--special-color);
+  font-weight: 500;
+}
+
+/* === Animations === */
 @keyframes pulse {
   0% {
     opacity: 1;
@@ -99,60 +147,25 @@ button:disabled #timer {
     opacity: 1;
   }
 }
-.expired {
-  animation: pulse 2s infinite;
-  color: #ff4444;
-}
-.resend-text {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  text-align: center;
-}
 
-.resend-link:disabled {
-  background-color: unset;
-  color: #999999 !important;
-}
-
-.resend-link {
-  color: var(--special-color);
-  background-color: unset;
-  border: unset;
-  text-decoration: none;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-.resend-link:hover {
-  text-decoration: underline;
-}
-.resend-link:disabled:hover {
-  text-decoration: none;
-}
-#email {
-  color: var(--special-color);
-  font-weight: 500;
-}
-
+/* === Responsive Styles === */
 @media (max-width: 1200px) {
   p {
     font-size: 17px;
   }
 }
-@media (min-width: 850px) and (max-height: 790px) {
-  .image-container {
-    max-height: 100dvh;
-  }
-}
+
 @media (max-width: 850px) {
   .otp-container {
+    width: 100%;
+    margin: 0;
     height: 100dvh;
   }
+
   p {
     margin-bottom: 20px;
   }
-  .otp-input {
-    margin-bottom: 20px;
-  }
+
   button#verify {
     width: 150px;
     height: 45px;
@@ -164,8 +177,6 @@ button:disabled #timer {
 @media (max-width: 500px) {
   .otp-input input {
     width: 70px;
-  }
-  .otp-input input {
     font-size: 1.5rem;
   }
 }
@@ -175,6 +186,7 @@ button:disabled #timer {
   .resend-text {
     font-size: 13px;
   }
+
   .otp-input input {
     width: 60px;
     height: 70px;
