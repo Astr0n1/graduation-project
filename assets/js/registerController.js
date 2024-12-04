@@ -6,6 +6,7 @@ import { View } from "./view/registerView.js";
 const Controller = {
   init() {
     this.bindEvents();
+    this.setCountryCode();
     this.resetOnLoad();
   },
 
@@ -135,6 +136,10 @@ const Controller = {
     } catch (error) {
       console.log(error);
     }
+  },
+
+  setCountryCode() {
+    View.setCountryCode();
   },
 
   resetOnLoad() {

@@ -49,6 +49,15 @@ export const View = {
     }
   },
 
+  setCountryCode() {
+    const phoneInputField = document.querySelector("input#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+      initialCountry: "eg",
+      utilsScript:
+        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+  },
+
   togglePasswordVisibility(button) {
     const input = button.closest(".input-group").querySelector("input");
     const isPasswordVisible = input.type === "password";

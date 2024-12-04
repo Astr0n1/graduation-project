@@ -244,3 +244,25 @@ button:disabled {
 .swal-text {
   text-align: center;
 }
+
+/* intlTelInpu */
+.iti {
+  width: 100%;
+}
+
+.iti__selected-flag {
+  padding: 0 6px 0 15px;
+}
+
+.iti__country-name,
+.iti__dial-code {
+  font-size: 12px;
+  text-wrap: wrap;
+}
+
+.iti__country-list {
+  min-width: 200px;
+  width: 70vw;
+  max-width: 300px;
+  overflow-x: hidden;
+}

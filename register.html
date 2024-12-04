@@ -12,7 +12,14 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- sweet alert -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script defer
+      src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- intlTelInput-->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+    <script defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
     <!-- fonts -->
     <link
@@ -57,9 +64,8 @@
             </div>
           </div>
           <div class="input-group">
-            <i class="fa fa-phone"></i>
             <input id="phone" type="tel" placeholder="Phone number" required
-              autocomplete="tel">
+              autocomplete="tel" maxlength="11">
             <div id="phone" class="status-messages">
               <p class="invalid" id="phone">Enter a valid mobile number</p>
             </div>
