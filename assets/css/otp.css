@@ -164,6 +164,7 @@ button:disabled #timer {
 
   p {
     margin-bottom: 20px;
+    font-size: 14px;
   }
 
   button#verify {
