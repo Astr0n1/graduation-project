@@ -14,7 +14,7 @@ const Controller = {
     // Prevent letters in phone field
     Model.inputFields.phone.addEventListener("input", () => {
       Model.inputFields.phone.value = Model.inputFields.phone.value.replace(
-        /[^0-9+]/g,
+        /[^0-9]/g,
         ""
       );
     });
