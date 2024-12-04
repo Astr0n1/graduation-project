@@ -33,7 +33,6 @@ input[type="number"] {
 .otp-input input {
   width: 88px;
   height: 80px;
-  margin: 0 8px;
   text-align: center;
   font-size: 2.5rem;
   border: 1px solid var(--primary);
